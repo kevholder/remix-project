@@ -212,6 +212,10 @@ class Blockchain {
     return this.executionContext.getProvider()
   }
 
+  getProviderName () {
+    return this.executionContext.getProviderName()
+  }
+
   isWeb3Provider () {
     const isVM = this.getProvider() === 'vm'
     const isInjected = this.getProvider() === 'injected'
@@ -285,11 +289,11 @@ class Blockchain {
     this.resetEnvironment()
   }
 
-  addNetwork (customNetwork) {
-    this.executionContext.addProvider(customNetwork)
+  addProvider (provider) {
+    this.executionContext.addProvider(provider)
   }
 
-  removeNetwork (name) {
+  removeProvider (name) {
     this.executionContext.removeProvider(name)
   }
 
